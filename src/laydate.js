@@ -382,7 +382,7 @@
     ,trigger: 'focus' //呼出控件的事件
     ,show: false //是否直接显示，如果设置true，则默认直接显示控件
     ,showBottom: true //是否显示底部栏
-    ,btns: ['clear', 'now', 'confirm'] //右下角显示的按钮，会按照数组顺序排列
+    ,btns: ['clear', 'confirm'] //右下角显示的按钮，会按照数组顺序排列
     ,lang: 'cn' //语言，只支持cn/en，即中文和英文
     ,theme: 'default' //主题
     ,position: null //控件定位方式定位, 默认absolute，支持：fixed/absolute/static
@@ -1513,9 +1513,9 @@
       
       lay.each(['startTime', 'endTime'], function(i, item){
         that[item] = that[item] || {
-          hours: 0
-          ,minutes: 0
-          ,seconds: 0
+          hours: item == 'endTime' ? 23 : 0
+          ,minutes: item == 'endTime' ? 59 : 0
+          ,seconds: item == 'endTime' ? 59 : 0
         };
       });
       
